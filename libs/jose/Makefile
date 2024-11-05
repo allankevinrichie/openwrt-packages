@@ -38,7 +38,7 @@ include $(INCLUDE_DIR)/meson.mk
 define Package/libjose
   SECTION:=libs
   TITLE:=Provides a full crypto stack including key generation, signing and encryption.
-  DEPENDS:=+zlib +jansson +libopenssl +libpthread
+  DEPENDS:=+zlib +jansson +libopenssl +libpthread +xsltproc/host
   URL:=https://github.com/latchset/jose
 endef
 
