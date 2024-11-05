@@ -19,6 +19,8 @@ PKG_MAINTAINER:=Tibor Dudlák <tibor.dudlak@gmail.com>
 PKG_LICENSE:=Apache-2.0
 PKG_LICENSE_FILES:=COPYING
 
+PKG_BUILD_DEPENDS:=xsltproc/host
+
 PYTHON3_PKG_BUILD:=0
 HOST_PYTHON3_PACKAGE_BUILD_DEPENDS:=asciidoc
 
@@ -38,7 +40,7 @@ include $(INCLUDE_DIR)/meson.mk
 define Package/libjose
   SECTION:=libs
   TITLE:=Provides a full crypto stack including key generation, signing and encryption.
-  DEPENDS:=+zlib +jansson +libopenssl +libpthread +xsltproc/host
+  DEPENDS:=+zlib +jansson +libopenssl +libpthread
   URL:=https://github.com/latchset/jose
 endef
 
