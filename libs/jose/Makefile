@@ -19,7 +19,18 @@ PKG_MAINTAINER:=Tibor Dudlák <tibor.dudlak@gmail.com>
 PKG_LICENSE:=Apache-2.0
 PKG_LICENSE_FILES:=COPYING
 
-PKG_BUILD_DEPENDS:=python3-asciidoc/host
+PYTHON3_PKG_BUILD:=0
+HOST_PYTHON3_PACKAGE_BUILD_DEPENDS:=asciidoc
+
+include $(INCLUDE_DIR)/package.mk
+include ../../lang/python/python3-package.mk
+# If outside of the packages feed:
+# include $(TOPDIR)/feeds/packages/lang/python/python3-package.mk
+
+define Build/Compile
+        $(call Py3Build/InstallBuildDepends)
+        $(call Build/Compile/Default)
+endef
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/meson.mk
